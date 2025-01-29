@@ -1,0 +1,65 @@
+<tracks>
+    <track>
+        <name>Monza</name>
+        <location>Italy</location>
+        <length>5.79 km</length>
+        <priceperlap>120</priceperlap>
+        <difficulty>Medium</difficulty>
+    </track>
+    <track>
+        <name>Spa-Francorchamps</name>
+        <location>Belgium</location>
+        <length>7.00 km</length>
+        <priceperlap>150</priceperlap>
+        <difficulty>High</difficulty>
+    </track>
+    <track>
+        <name>Silverstone</name>
+        <location>United Kingdom</location>
+        <length>5.89 km</length>
+        <priceperlap>130</priceperlap>
+        <difficulty>Medium</difficulty>
+    </track>
+    <track>
+        <name>Laguna Seca</name>
+        <location>USA</location>
+        <length>3.60 km</length>
+        <priceperlap>140</priceperlap>
+        <difficulty>High</difficulty>
+    </track>
+    <track>
+        <name>Suzuka</name>
+        <location>Japan</location>
+        <length>5.81 km</length>
+        <priceperlap>160</priceperlap>
+        <difficulty>High</difficulty>
+    </track>
+    <track>
+        <name>Nordschleife</name>
+        <location>Germany</location>
+        <length>20.83 km</length>
+        <priceperlap>200</priceperlap>
+        <difficulty>Extreme</difficulty>
+    </track>
+    <track>
+        <name>Mount-Panorama</name>
+        <location>Australia</location>
+        <length>6.21 km</length>
+        <priceperlap>170</priceperlap>
+        <difficulty>High</difficulty>
+    </track>
+    <track>
+        <name>Interlagos</name>
+        <location>Brazil</location>
+        <length>4.31 km</length>
+        <priceperlap>145</priceperlap>
+        <difficulty>Medium</difficulty>
+    </track>
+    <track>
+        <name>Circuit-de-Barcelona</name>
+        <location>Spain</location>
+        <length>4.66 km</length>
+        <priceperlap>135</priceperlap>
+        <difficulty>Medium</difficulty>
+    </track>
+</tracks>
