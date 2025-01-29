@@ -26,10 +26,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const carButtons = document.querySelectorAll('.car-button img');
+            const carButtons = document.querySelectorAll('.car-container button');
             carButtons.forEach(button => {
                 button.addEventListener('click', function () {
-                    this.classList.toggle('dark-background');
+                    carButtons.forEach(btn => btn.classList.remove('dark-background'));
+                    this.classList.add('dark-background');
                 });
             });
         });

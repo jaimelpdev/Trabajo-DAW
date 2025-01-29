@@ -1,3 +1,5 @@
+/* ...existing code... */
+
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
@@ -48,8 +50,9 @@ h1 {
   height: auto;
 }
 
-.car-button img.dark-background {
-  background-color: #333;
+.car-container button.dark-background {
+  background-color: #646464;
+  border: 2px solid white;
 }
 
 .car-image {
@@ -88,7 +91,11 @@ h1 {
   overflow: hidden;
   width: 300px;
   text-align: center;
-  position: relative;
+  margin: 10px;
+}
+
+.track-card button:hover {
+  cursor: pointer;
 }
 
 .track-card .add-to-cart-popup {
@@ -152,3 +159,69 @@ h1 {
   margin: 5px 0;
   font-size: 1em;
 }
+
+/* Media Queries for Responsive Design */
+@media (max-width: 920px) {
+  .car-container {
+    align-items: center;
+  }
+
+  .car-container button {
+    width: 12%;
+    height: auto;
+    margin: 2% 0;
+  }
+
+  .car-container button :hover {
+    width: 60%;
+    height: auto;
+    margin: 15% 0;
+  }
+
+  .tracks-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .track-card {
+    width: 60%;
+    margin: 10px 0;
+  }
+
+  .track-image {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .car-container {
+    align-items: center;
+  }
+
+  .car-container button {
+    width: 12%;
+    height: auto;
+    margin: 2% 0;
+  }
+
+  .car-container button :hover {
+    width: 60%;
+    height: auto;
+    margin: 15% 0;
+  }
+
+  .tracks-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .track-card {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .track-image {
+    height: auto;
+  }
+}
+
