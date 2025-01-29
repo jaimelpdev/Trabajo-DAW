@@ -48,6 +48,10 @@ h1 {
   height: auto;
 }
 
+.car-button img.dark-background {
+  background-color: #333;
+}
+
 .car-image {
   width: 150px;
   height: 150px;
@@ -87,9 +91,36 @@ h1 {
   position: relative;
 }
 
-.track-card :hover {
-  cursor: pointer;
-  background-color: #d3d3d3;
+.track-card .add-to-cart-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(10px, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1001;
+  white-space: nowrap;
+}
+
+.track-card:hover .add-to-cart-popup {
+  display: block;
+}
+
+.add-to-cart-popup:hover {
+  background-color: black;
+  color: white;
+}
+
+.add-to-cart-popup input {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.car-container button.selected {
+  border: 2px solid red;
 }
 
 .track-image {

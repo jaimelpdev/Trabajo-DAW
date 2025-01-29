@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <h1>Delta Race</h1>
 
     <div class="car-container">
@@ -19,28 +20,37 @@
         <button><img src="imgs/coches/lamborghini-aventador-svj.webp" alt="Lamborghini Aventador SVJ"></button>
     </div>
 
-        <div id="tracksContainer" class="tracks-container">
-            <!-- Cards will be populated dynamically -->
-        </div>
+    <div id="tracksContainer" class="tracks-container">
+        <!-- Cards will be populated dynamically -->
+    </div>
 
-        <script>
-            async function fetchTracks() {
-                try {
-                    const response = await fetch("http://localhost:3000/inscriptions");
-                    const tracks = await response.json();
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carButtons = document.querySelectorAll('.car-button img');
+            carButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    this.classList.toggle('dark-background');
+                });
+            });
+        });
 
-                    console.log("Tracks data:", tracks);
+        async function fetchTracks() {
+            try {
+                const response = await fetch("http://localhost:3000/inscriptions");
+                const tracks = await response.json();
 
-                    const tracksContainer = document.getElementById("tracksContainer");
+                console.log("Tracks data:", tracks);
 
-                    tracks.forEach(track => {
-                        const card = document.createElement("div");
-                        card.className = "track-card";
+                const tracksContainer = document.getElementById("tracksContainer");
 
-                        const trackName = track.name[0].toLowerCase().replace(/\s+/g, '-');
-                        const imgSrc = `imgs/circuitos/${trackName}.webp`;
+                tracks.forEach(track => {
+                    const card = document.createElement("div");
+                    card.className = "track-card";
 
-                        card.innerHTML = `
+                    const trackName = track.name[0].toLowerCase().replace(/\s+/g, '-');
+                    const imgSrc = `imgs/circuitos/${trackName}.webp`;
+
+                    card.innerHTML = `
                     <button class="track-button">
                         <img src="${imgSrc}" alt="${track.name[0]}" class="track-image" onerror="this.onerror=null;this.src='imgs/circuitos/default.webp';">
                         <div class="track-info">
@@ -50,19 +60,23 @@
                             <p><strong>Price Per Lap:</strong> ${track.priceperlap[0]}</p>
                             <p><strong>Difficulty:</strong> ${track.difficulty[0]}</p>
                         </div>
+                        <div class="add-to-cart-popup">
+                            <label for="laps">Vueltas:</label>
+                            <input type="number" id="laps" name="laps" min="1" value="1">
+                            <button class="add-to-cart-button">Añadir al carrito</button>
+                        </div>
                     </button>
                 `;
 
-                        tracksContainer.appendChild(card);
-                    });
-                } catch (error) {
-                    console.error("Error fetching tracks:", error);
-                }
+                    tracksContainer.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error fetching tracks:", error);
             }
+        }
 
-            fetchTracks();
-        </script>
-
+        fetchTracks();
+    </script>
 </body>
 
 </html>
