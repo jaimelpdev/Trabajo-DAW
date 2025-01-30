@@ -104,16 +104,11 @@ h1 {
   top: 50%;
   left: 100%;
   transform: translate(10px, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 10px;
   border-radius: 5px;
   z-index: 1001;
   white-space: nowrap;
-}
-
-.track-card:hover .add-to-cart-popup {
-  display: block;
 }
 
 .add-to-cart-popup:hover {
@@ -224,4 +219,3 @@ h1 {
     height: auto;
   }
 }
-
