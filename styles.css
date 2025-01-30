@@ -1,90 +1,163 @@
+/* ...existing code... */
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url("imgs/fondo.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.car-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5%;
+}
+
+.car-container button {
+  padding: 0;
+  border: none;
+  background: white;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 15px;
+}
+
+.car-container button img {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 15px;
+  transition: width 0.3s ease;
+}
+
+.car-container button img:hover {
+  width: 120%;
+  height: auto;
+}
+
+.car-container button.dark-background {
+  background-color: #646464;
+  border: 2px solid white;
+}
+
+.car-image {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-container button:hover {
+  cursor: pointer;
+  width: 12%;
 }
 
 .tracks-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow-x: hidden;
+  gap: 20px;
+  padding: 20px;
 }
 
 .track-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
   width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.track-card:hover {
-  transform: scale(1.05);
-}
-
-.track-image {
-  width: 100%;
-  height: auto;
-}
-
-.track-info {
   text-align: center;
+  margin: 10px;
 }
 
-.laps-input {
-  margin-top: 10px;
-  text-align: center;
+.track-card button:hover {
+  cursor: pointer;
 }
 
-.track-info h2 {
-  margin: 0 0 10px;
-  font-size: 24px;
-}
-
-.track-info p {
-  margin: 5px 0;
-}
-
-.add-to-cart-popup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  padding: 10px;
+.track-card .add-to-cart-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(10px, -50%);
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  padding: 10px;
   border-radius: 5px;
+  z-index: 1001;
+  white-space: nowrap;
 }
 
-.add-to-cart-popup label {
-  margin-bottom: 5px;
+.track-card:hover .add-to-cart-popup {
+  display: block;
+}
+
+.add-to-cart-popup:hover {
+  background-color: black;
+  color: white;
 }
 
 .add-to-cart-popup input {
   width: 50px;
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  margin-right: 10px;
 }
 
-.add-to-cart-popup button {
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
+.car-container button.selected {
+  border: 2px solid red;
 }
 
-.add-to-cart-popup button:hover {
-  background-color: #cc0000;
+.track-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.car-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+  opacity: 0.8;
+}
+
+.track-info {
+  padding: 15px;
+}
+
+.track-info h2 {
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+
+.track-info p {
+  margin: 5px 0;
+  font-size: 1em;
 }
 
 /* Media Queries for Responsive Design */
@@ -151,3 +224,4 @@ body {
     height: auto;
   }
 }
+
