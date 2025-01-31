@@ -120,6 +120,10 @@ h1 {
   margin-right: 10px;
 }
 
+.car-container button.selected {
+  border: 2px solid red;
+}
+
 .track-image {
   width: 100%;
   height: 200px;
@@ -152,12 +156,6 @@ h1 {
     margin: 2% 0;
   }
 
-  .car-container button :hover {
-    width: 60%;
-    height: auto;
-    margin: 15% 0;
-  }
-
   .tracks-container {
     flex-direction: column;
     align-items: center;
@@ -182,25 +180,5 @@ h1 {
     width: 12%;
     height: auto;
     margin: 2% 0;
-  }
-
-  .car-container button :hover {
-    width: 60%;
-    height: auto;
-    margin: 15% 0;
-  }
-
-  .tracks-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .track-card {
-    width: 80%;
-    margin: 10px 0;
-  }
-
-  .track-image {
-    height: auto;
   }
 }
