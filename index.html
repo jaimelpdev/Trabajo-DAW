@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delta Race</title>
     <link rel="stylesheet" href="styles.css" />
-</head>
+  </head>
 
-<body>
-
+  <body>
     <h1>Delta Race</h1>
 
     <div class="car-container">
-        <button><img src="imgs/coches/296gtb.webp" alt="Ferrari 296 GTB"></button>
-        <button><img src="imgs/coches/amg-gt4.webp" alt="Mercedes AMG GT4"></button>
-        <button><img src="imgs/coches/f8-tributo.webp" alt="Ferrari F8 Tributo"></button>
-        <button><img src="imgs/coches/formula4.webp" alt="Formula 4"></button>
-        <button><img src="imgs/coches/lamborghini-aventador-svj.webp" alt="Lamborghini Aventador SVJ"></button>
+      <button><img src="imgs/cars/296gtb.webp" alt="Ferrari 296 GTB" /></button>
+      <button>
+        <img src="imgs/cars/amg-gt4.webp" alt="Mercedes AMG GT4" />
+      </button>
+      <button>
+        <img src="imgs/cars/f8-tributo.webp" alt="Ferrari F8 Tributo" />
+      </button>
+      <button><img src="imgs/cars/formula4.webp" alt="Formula 4" /></button>
+      <button>
+        <img
+          src="imgs/cars/lamborghini-aventador-svj.webp"
+          alt="Lamborghini Aventador SVJ"
+        />
+      </button>
     </div>
 
     <div id="tracksContainer" class="tracks-container">
-        <!-- Cards will be populated dynamically -->
+      <!-- Cards will be populated dynamically -->
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carButtons = document.querySelectorAll('.car-container button');
-            carButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    carButtons.forEach(btn => btn.classList.remove('dark-background'));
-                    this.classList.add('dark-background');
-                });
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        const carButtons = document.querySelectorAll(".car-container button");
+        carButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            carButtons.forEach((btn) =>
+              btn.classList.remove("dark-background")
+            );
+            this.classList.add("dark-background");
+          });
         });
+      });
 
-        async function fetchTracks() {
-            try {
-                const response = await fetch("http://localhost:3000/inscriptions");
-                const tracks = await response.json();
+      async function fetchTracks() {
+        try {
+          const response = await fetch("http://localhost:3000/inscriptions");
+          const tracks = await response.json();
 
-                console.log("Tracks data:", tracks);
+          console.log("Tracks data:", tracks);
 
-                const tracksContainer = document.getElementById("tracksContainer");
+          const tracksContainer = document.getElementById("tracksContainer");
 
-                tracks.forEach(track => {
-                    const card = document.createElement("div");
-                    card.className = "track-card";
+          tracks.forEach((track) => {
+            const card = document.createElement("div");
+            card.className = "track-card";
 
-                    const trackName = track.name[0].toLowerCase().replace(/\s+/g, '-');
-                    const imgSrc = `imgs/circuitos/${trackName}.webp`;
+            const trackName = track.name[0].toLowerCase().replace(/\s+/g, "-");
+            const imgSrc = `imgs/tracks/${trackName}.webp`;
 
-                    card.innerHTML = `
+            card.innerHTML = `
                     <button class="track-button">
-                        <img src="${imgSrc}" alt="${track.name[0]}" class="track-image" onerror="this.onerror=null;this.src='imgs/circuitos/default.webp';">
+                        <img src="${imgSrc}" alt="${track.name[0]}" class="track-image" onerror="this.onerror=null;this.src='imgs/tracks/default.webp';">
                         <div class="track-info">
                             <h2>${track.name[0]}</h2>
                             <p><strong>Location:</strong> ${track.location[0]}</p>
@@ -74,20 +83,19 @@
                     </button>
                 `;
 
-                    tracksContainer.appendChild(card);
-                });
-            } catch (error) {
-                console.error("Error fetching tracks:", error);
-            }
+            tracksContainer.appendChild(card);
+          });
+        } catch (error) {
+          console.error("Error fetching tracks:", error);
         }
+      }
 
-        function validateLaps(input) {
-            if (input.value > 20) input.value = 20;
-            if (input.value < 1) input.value = 1;
-        }
+      function validateLaps(input) {
+        if (input.value > 20) input.value = 20;
+        if (input.value < 1) input.value = 1;
+      }
 
-        fetchTracks();
+      fetchTracks();
     </script>
-</body>
-
+  </body>
 </html>

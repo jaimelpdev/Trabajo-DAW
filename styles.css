@@ -1,10 +1,8 @@
-/* ...existing code... */
-
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("imgs/fondo.webp");
+  background-image: url("imgs/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
   color: #333;
@@ -74,6 +72,7 @@ h1 {
 .car-container button:hover {
   cursor: pointer;
   width: 12%;
+  transition-duration: 0.8s;
 }
 
 .tracks-container {
@@ -121,24 +120,10 @@ h1 {
   margin-right: 10px;
 }
 
-.car-container button.selected {
-  border: 2px solid red;
-}
-
 .track-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.car-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: auto;
-  opacity: 0.8;
 }
 
 .track-info {
